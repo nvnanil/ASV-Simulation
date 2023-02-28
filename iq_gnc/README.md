@@ -1,7 +1,7 @@
 # ASV - Simulation
 To simulate the ASV using Ardupilot plugin and QGround Control
 
-*Software Dependencies*
+## Software Dependencies*
 
 Ubuntu 20.04
 ROS Noetic
