@@ -1,2 +1,2 @@
-# iq_gnc
-ros package for GNC of and autonomous drone
+# ASV - Simulation
+To simulate the ASV using Ardupilot plugin and QGround Control
