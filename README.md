@@ -124,3 +124,71 @@ Update global variables
 ```
 source ~/.bashrc
 ```
+## Install *sitl_gazebo* plugin dependencies
+ 
+ Install the 
+ dependencies:
+
+ ```bash
+sudo apt-get install libprotobuf-dev
+sudo apt-get install libprotoc-dev sudo apt-get install protobuf-compiler 
+sudo apt-get install libeigen3-dev sudo apt-get install libxml2-utils sudo apt-get install python-rospkg sudo apt-get install python-jinja2
+sudo apt-get install libgstreamer-plugins-base1.0-dev gstreamer1.0-plugins-bad gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly -y
+```
+Build *sitl_gazebo*
+
+Clone the repository:
+```bash
+mkdir -p ~/src
+cd src
+git clone --recursive https://github.com/PX4/sitl_gazebo.git
+```
+Navigate into the build directory and invoke CMake from it:
+
+```bash
+cd ~/src/sitl_gazebo
+mkdir build
+cd build
+cmake ..
+```
+Now build the gazebo plugins by typing:
+
+```bash
+make -j$(nproc) -l$(nproc)
+```
+Next add the location of this build directory to your gazebo plugin path,
+```bash
+export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:$HOME/src/sitl_gazebo/build
+```
+
+You also need to add the the root location of this repository, e.g. add the following line to your `.bashrc` (Linux)
+```bash
+export SITL_GAZEBO_PATH=$HOME/src/sitl_gazebo
+sudo make install
+```
+
+## Setup boat package
+
+```
+cd ~/catkin_ws/src
+git clone https://github.com/nvnanil/ASV-simulation.git
+cd iq_gnc
+git checkout boat
+catkin build
+```
+
+### Add custom location to ardurover sitl
+
+```
+cd ~/catkin_ws/src/iq_sim/scripts/
+./boatSetup.sh
+```
+
+### Run ASV simulation
+First terminal 
+```
+roslaunch iq_sim boat.launch
+```
+second terminal
+```
+sim_vehicle.py -v APMrover2 -f gazebo-rover  -m --mav10 --console -L Viridian
