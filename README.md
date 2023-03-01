@@ -171,7 +171,7 @@ sudo make install
 
 ```
 cd ~/catkin_ws/src
-git clone https://github.com/nvnanil/ASV-simulation.git
+git clone https://github.com/nvnanil/asv_simulation.git
 cd iq_gnc
 git checkout boat
 catkin build
