@@ -1,4 +1,7 @@
 # ASV - Simulation
+
+Author: Naveen Anil
+
 To simulate the ASV using Ardupilot plugin and QGround Control
 
 ## Software Dependencies
