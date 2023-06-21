@@ -42,7 +42,7 @@ Open `~/.bashrc` for editing:
 gedit ~/.bashrc
 ```
 
-Add these lines to end of `~/.bashrc` (the file open in the text editor):
+Add these lines to end of `~/.bashrc` (open file in the text editor):
 ```
 export PATH=$PATH:$HOME/ardupilot/Tools/autotest
 export PATH=/usr/lib/ccache:$PATH
@@ -195,3 +195,8 @@ roslaunch iq_sim boat.launch
 second terminal
 ```
 sim_vehicle.py -v APMrover2 -f gazebo-rover  -m --mav10 --console -L Viridian
+```
+Establsh connection between the computer and ArduRover using
+```
+rosrun iq_gnc apm.launch
+```
