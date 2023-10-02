@@ -176,7 +176,7 @@ sudo make install
 cd ~/catkin_ws/src
 git clone https://github.com/nvnanil/asv_simulation.git
 cd iq_gnc
-git checkout boat
+git checkout main
 catkin build
 ```
 
@@ -192,7 +192,7 @@ First terminal
 ```
 roslaunch iq_sim boat.launch
 ```
-second terminal
+Second terminal
 ```
 sim_vehicle.py -v APMrover2 -f gazebo-rover  -m --mav10 --console -L Viridian
 ```
